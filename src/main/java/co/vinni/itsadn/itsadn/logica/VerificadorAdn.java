@@ -18,15 +18,11 @@ public class VerificadorAdn {
         {
             return null;
         }
-        if(  validarExcluyente(matriz)){
-            return true;
-        }else{
-            return false;
-        }
+        return validarExcluyente(matriz);
     }
 
     private String[][] construirMatriz(String[] dna) {
-        String matriz[][] = new String[dna.length][dna.length];
+        String[][] matriz = new String[dna.length][dna.length];
         int n =0;
         for (String dato : dna) {
             String[] fila = dato.split("");
@@ -49,15 +45,15 @@ public class VerificadorAdn {
                         strings[y].equals("T") ||
                         strings[y].equals("C") ||
                         strings[y].equals("G"))) {
-                    return false;
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
     }
 
     public boolean validarExcluyente(String[][] matriz) {
-        if(!verificarContenido(matriz)){
+        if(verificarContenido(matriz)){
             return false;
         }
         if (validarHorizontal(matriz)){
@@ -66,17 +62,7 @@ public class VerificadorAdn {
             return true;
         }else return validarDiagonal(matriz);
     }
-    public boolean validarIncluyente(String[][] matriz) {
-        if(!verificarContenido(matriz)){
-            return false;
-        }
-        if (validarHorizontal(matriz)) {
-            if (validarVertical(matriz) && validarDiagonal(matriz)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     private boolean validarHorizontal(String[][] matriz) {
         for (int x = 0; x < matriz.length; x++) {
