@@ -1,6 +1,7 @@
 package co.vinni.itsadn.itsadn.controlador;
 
 import co.vinni.itsadn.itsadn.modelo.Adn;
+import co.vinni.itsadn.itsadn.modelo.Estadistica;
 import co.vinni.itsadn.itsadn.modelo.repositorio.AdnRepositorio;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+/**
+ *
+ * @author Vinni - vinni_@yahoo.com
+ */
 @Log4j2
 @Service
 public class AdnImplemetacion implements AdnControlerS
@@ -45,5 +49,20 @@ public class AdnImplemetacion implements AdnControlerS
     @Override
     public void borrarAdnbyId(long id) {
         adnRepositorio.deleteById(id);
+    }
+
+
+    public Estadistica getEstadisticas() {
+        Estadistica estadistica = new Estadistica();
+        List<Adn> adnMutant =  this.adnRepositorio.findByTipo("MUTANT");
+        List<Adn> adnHuman =  this.adnRepositorio.findByTipo("HUMAN");
+        estadistica.setCountMutantDna(adnMutant.size());
+        estadistica.setCountHumanDna(adnHuman.size());
+        Double mut = Double.parseDouble(""+adnMutant.size());
+        Double hum = Double.parseDouble(""+adnHuman.size());
+        if (hum > 0) {
+            estadistica.setRatio(mut / hum);
+        }
+        return estadistica;
     }
 }

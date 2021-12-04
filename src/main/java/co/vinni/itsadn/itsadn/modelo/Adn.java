@@ -3,7 +3,10 @@ package co.vinni.itsadn.itsadn.modelo;
 import lombok.*;
 
 import javax.persistence.*;
-
+/**
+ *
+ * @author Vinni - vinni_@yahoo.com
+ */
 
 @Entity
 @Data
@@ -20,5 +23,7 @@ public class Adn {
     private long id;
 
     private String[] dna;
+    private String tipo;
+
 
 }
