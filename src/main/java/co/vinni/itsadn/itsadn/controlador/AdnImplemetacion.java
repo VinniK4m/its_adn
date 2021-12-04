@@ -29,27 +29,7 @@ public class AdnImplemetacion implements AdnControlerS
         return adnRepositorio.save(dato);
     }
 
-    @Override
-    public Adn editarAdn(Adn dato) {
-        return adnRepositorio.save(dato);
-    }
 
-    @Override
-    public Adn getAdnbyID(long id) {
-        Optional<Adn> optional= Optional.ofNullable(this.getAdnbyID(id));
-        Adn adn = null;
-        if (optional.isPresent()){
-            adn = optional.get();
-        }else{
-            log.error("No se encuentra un Adn por el Id recibido ");
-        }
-        return adn;
-    }
-
-    @Override
-    public void borrarAdnbyId(long id) {
-        adnRepositorio.deleteById(id);
-    }
 
 
     public Estadistica getEstadisticas() {
@@ -58,8 +38,8 @@ public class AdnImplemetacion implements AdnControlerS
         List<Adn> adnHuman =  this.adnRepositorio.findByTipo("HUMAN");
         estadistica.setCountMutantDna(adnMutant.size());
         estadistica.setCountHumanDna(adnHuman.size());
-        Double mut = Double.parseDouble(""+adnMutant.size());
-        Double hum = Double.parseDouble(""+adnHuman.size());
+        double  mut = Double.parseDouble(""+adnMutant.size());
+        double hum = Double.parseDouble(""+adnHuman.size());
         if (hum > 0) {
             estadistica.setRatio(mut / hum);
         }
