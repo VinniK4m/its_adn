@@ -1,70 +1,71 @@
 package co.vinni.itsadn.itsadn;
 
-import co.vinni.itsadn.itsadn.logica.VerificadorAdn;
+import co.vinni.itsadn.itsadn.logic.ChequedDna;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class VerificadorAdnTest {
-    private final VerificadorAdn verificador;
-    public VerificadorAdnTest(){
-        verificador = new VerificadorAdn();
+public class ChequedDnaTest {
+    private final ChequedDna chequed;
+    public ChequedDnaTest(){
+        chequed = new ChequedDna();
     }
 
     /**
-     * Verifica que sea null
+     * Test check dna is null
      */
     @Test
-    void verificarNull() {
-        boolean rta = verificador.isMutant(null);
+    void verifyNull() {
+        boolean rta = chequed.isMutant(null);
         assertFalse(rta);
     }
     /**
-     * Verifica que todos las cadenas tengan la longitud completa
+     * Test check length of dna is complete
      */
     @Test
-    void verificarLongitudDif() {
+    void verifyLengthDif() {
         String[] dna = {"ATGCA","CATGC","GT","","CCCCTA","TCTG", "TCACTG"};
-        boolean rta = verificador.isMutant(dna);
+        boolean rta = chequed.isMutant(dna);
         assertFalse(rta);
     }
     /**
-     * Verifica que tenga el numero nxn de filas y datos
+     * Test check size structure dna is nxn in row and data
      */
     @Test
-    void verificarTamano() {
+    void verifySize() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA"};
-        boolean rta = verificador.isMutant(dna);
+        boolean rta = chequed.isMutant(dna);
         assertFalse(rta);
     }
     /**
-     * Verifica que no tenga caracteres diferentes a ATGC
+     * Test Check that it only containts the charactes "ACGT"
      */
     @Test
-    void verificarCaracteres() {
+    void verifyCharacters() {
         String[] dna = {"ATGNGA","CAGTWC","TEATGT","AGUAGG","CCCCTA", "CCMCTA"};
-        boolean rta = verificador.isMutant(dna);
+        boolean rta = chequed.isMutant(dna);
         assertFalse(rta);
     }
     /**
-     * Verifica si es mutante
+     * Test check string dna result Mutant
      */
     @Test
-    void verificarEsMutante() {
+    void verifyIsMutant() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-        boolean rta = verificador.isMutant(dna);
+        boolean rta = chequed.isMutant(dna);
         System.out.println(rta);
         assertTrue(rta);
     }
     /**
-     * Verifica que no sea mutante
+     * Test check string dna result Human
      */
     @Test
-    void verificarNoEsMutante() {
+    void verifyIsHuman() {
         String[] dna =  {"ATGCGA","CTGTAC","TTATGT","AGAAGG","CCGCTA","TCACTG"};
-        boolean rta = verificador.isMutant(dna);
+        boolean rta = chequed.isMutant(dna);
         assertFalse(rta);
     }
 }
