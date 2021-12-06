@@ -6,7 +6,7 @@ import co.vinni.itsadn.itsadn.model.Statistics;
 
 import java.util.List;
 /**
- *
+ * Operations for data base
  * @author Vinni - vinni_@yahoo.com
  */
 public interface DnaControllerS {

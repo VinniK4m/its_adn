@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- *
+ *  Class implements operations data base
  * @author Vinni - vinni_@yahoo.com
  */
 @Log4j2
