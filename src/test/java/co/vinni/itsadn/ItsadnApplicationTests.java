@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn;
+package co.vinni.itsadn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-class ItsadnApplicationTests {
+class ItsdnaApplicationTests {
 
     @Test
     void contextLoads() {

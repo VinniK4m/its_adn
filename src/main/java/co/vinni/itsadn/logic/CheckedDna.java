@@ -1,6 +1,6 @@
-package co.vinni.itsadn.itsadn.logic;
+package co.vinni.itsadn.logic;
 /**
- *
+ * Class to perform DNA strand validations and determine Mutant
  * @author Vinni - vinni_@yahoo.com
  */
 public class CheckedDna {
@@ -18,9 +18,17 @@ public class CheckedDna {
         {
             return null;
         }
+        if (!verifyContent(matrix)){
+            return null;
+        }
         return validateExclude(matrix);
     }
 
+    /**
+     * Method to build the array from JSON object
+     * @param dna [] String
+     * @return String[][]
+     */
     private String[][] buildMatrix(String[] dna) {
         String[][] matrix = new String[dna.length][dna.length];
         int n =0;
@@ -38,24 +46,31 @@ public class CheckedDna {
         return matrix;
     }
 
+    /**
+     * Method to verify that a character other than "A", "T", "C", "G" is not entered
+     * @param matrix String[][]
+     * @return boolean
+     */
     private boolean verifyContent(String[][] matrix){
-        for (String[] strings : matrix) {
+        for (String[] row : matrix) {
             for (int y = 0; y < matrix.length; y++) {
-                if (!(strings[y].equals("A") ||
-                        strings[y].equals("T") ||
-                        strings[y].equals("C") ||
-                        strings[y].equals("G"))) {
-                    return true;
+                if (!(row[y].equals("A") ||
+                        row[y].equals("T") ||
+                        row[y].equals("C") ||
+                        row[y].equals("G"))) {
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
+    /**
+     * Method to verify consecutive chains horizontally, vertically and / or diagonally exclusively
+     * @param matrix String[][]
+     * @return boolean
+     */
     private boolean validateExclude(String[][] matrix) {
-        if(verifyContent(matrix)){
-            return false;
-        }
         if (validateHorizontal(matrix)){
             return true;
         }else if (validateVertical(matrix)){
@@ -63,19 +78,29 @@ public class CheckedDna {
         }else return validateDiagonal(matrix);
     }
 
-
+    /**
+     * Method to check consecutive strings horizontally
+     * @param matrix String[][]
+     * @return boolean
+     */
     private boolean validateHorizontal(String[][] matrix) {
-        for (String[] strings : matrix) {
+        for (String[] row : matrix) {
             for (int y = 0; y < matrix.length - 3; y++) {
-                if (strings[y].equals(strings[y + 1]) &&
-                        strings[y].equals(strings[y + 2]) &&
-                        strings[y].equals(strings[y + 3])) {
+                if (row[y].equals(row[y + 1]) &&
+                        row[y].equals(row[y + 2]) &&
+                        row[y].equals(row[y + 3])) {
                     return true;
                 }
             }
         }
         return false;
     }
+
+    /**
+     * Method to check consecutive strings vertically
+     * @param matrix String[][]
+     * @return boolean
+     */
     private boolean validateVertical(String[][] matrix) {
 
         for (int y = 0; y < matrix.length; y++) {
@@ -90,6 +115,12 @@ public class CheckedDna {
         }
         return false;
     }
+
+    /**
+     * Method to check consecutive strings diagonally
+     * @param matrix String[][]
+     * @return boolean
+     */
     private boolean validateDiagonal(String[][] matrix) {
         for (int x = 0; x < matrix.length-3; x++) {
             for (int y = 0; y < matrix.length-3; y++) {

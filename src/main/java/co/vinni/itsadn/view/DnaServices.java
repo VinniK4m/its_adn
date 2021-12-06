@@ -1,10 +1,10 @@
-package co.vinni.itsadn.itsadn.view;
+package co.vinni.itsadn.view;
 
 
-import co.vinni.itsadn.itsadn.controller.DnaControllerS;
-import co.vinni.itsadn.itsadn.logic.CheckedDna;
-import co.vinni.itsadn.itsadn.model.Dna;
-import co.vinni.itsadn.itsadn.model.Statistics;
+import co.vinni.itsadn.controller.DnaControllerS;
+import co.vinni.itsadn.logic.CheckedDna;
+import co.vinni.itsadn.model.Dna;
+import co.vinni.itsadn.model.Statistics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,11 +1,11 @@
-package co.vinni.itsadn.itsadn.config;
+package co.vinni.itsadn.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
- *
+ * Class to configure Cross filter connections
  * @author Vinni - vinni_@yahoo.com
  */
 @Configuration

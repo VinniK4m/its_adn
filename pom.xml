@@ -8,11 +8,11 @@
         <version>2.6.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>co.vinni.itsadn</groupId>
-    <artifactId>itsadn</artifactId>
+    <groupId>co.vinni</groupId>
+    <artifactId>itsdna</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>itsadn</name>
-    <description>itsadn</description>
+    <name>itsdna</name>
+    <description>itsdna - Checked mutant</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>

@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn.model;
+package co.vinni.itsadn.model;
 
 import lombok.Getter;
 import lombok.Setter;
