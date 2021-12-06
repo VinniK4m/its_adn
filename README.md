@@ -9,7 +9,7 @@ It was developed in java language, using the Sprint framework. The persistence u
 |--------------------|-----------------------------|
 |Documentation    | The github wiki is used can be seen in the following url: [https://github.com/VinniK4m/its_adn/wiki](https://github.com/VinniK4m/its_adn/wiki)  |
 |Code  | The last version:   [https://github.com/VinniK4m/its_adn/tree/master](https://github.com/VinniK4m/its_adn/tree/master/)  | 
-|Release  | Version 1.2:   [https://github.com/VinniK4m/its_adn/releases/tag/ItsMutant_v12](https://github.com/VinniK4m/its_adn/releases/tag/ItsMutant_v12)  | 
+|Release  | Version 2:   [https://github.com/VinniK4m/its_adn/releases/tag/ItsMutant_v2](https://github.com/VinniK4m/its_adn/releases/tag/ItsMutant_v2)  | 
 |deployment  | The cloud deployment URL is at:   [http://itsdna.herokuapp.com/](http://itsdna.herokuapp.com/)  | 
 
 ### Implemented services
