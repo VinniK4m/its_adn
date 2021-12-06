@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn.modelo;
+package co.vinni.itsadn.itsadn.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +8,11 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class Estadistica {
+public class Statistics {
     private Integer countMutantDna;
     private Integer countHumanDna;
     private Double ratio;
-    public Estadistica(){
+    public Statistics(){
         countMutantDna = 0;
         countHumanDna = 0;
         ratio = 0.0;

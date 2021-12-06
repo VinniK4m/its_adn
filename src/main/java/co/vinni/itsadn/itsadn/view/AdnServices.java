@@ -1,9 +1,10 @@
-package co.vinni.itsadn.itsadn.vista;
+package co.vinni.itsadn.itsadn.view;
 
-import co.vinni.itsadn.itsadn.controlador.AdnControlerS;
-import co.vinni.itsadn.itsadn.logica.VerificadorAdn;
-import co.vinni.itsadn.itsadn.modelo.Adn;
-import co.vinni.itsadn.itsadn.modelo.Estadistica;
+
+import co.vinni.itsadn.itsadn.controller.DnaControlerS;
+import co.vinni.itsadn.itsadn.logic.ChequedDna;
+import co.vinni.itsadn.itsadn.model.Dna;
+import co.vinni.itsadn.itsadn.model.Statistics;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,26 +17,26 @@ import java.util.List;
  * @author Vinni - vinni_@yahoo.com
  */
 @RestController
-@RequestMapping("/itsadn")
-public class AdnServicios {
+@RequestMapping("/itsdna")
+public class AdnServices {
 
     @Autowired
-    private AdnControlerS adnController;
+    private DnaControlerS dnaController;
 
     @GetMapping("/")
-    public List<Adn> inicio(Model model){
-        return adnController.getAllAdn();
+    public List<Dna> inicio(Model model){
+        return dnaController.getAllDna();
     }
     @GetMapping("/stats")
-    public ResponseEntity<Estadistica> generaEstadistica(Model model){
-        Estadistica estadistica =adnController.getEstadisticas();
+    public ResponseEntity<Statistics> generaEstadistica(Model model){
+        Statistics estadistica =dnaController.getStatistics();
 
         return ResponseEntity.ok(estadistica);
     }
     @PostMapping("/mutant")
-    public ResponseEntity esMutante(@RequestBody Adn datoAdn){
+    public ResponseEntity esMutante(@RequestBody Dna datoAdn){
         //System.out.println(datoAdn);
-        VerificadorAdn verif = new VerificadorAdn();
+        ChequedDna verif = new ChequedDna();
         Boolean rta = verif.isMutant(datoAdn.getDna());
         if (rta == null) {
 
@@ -43,13 +44,13 @@ public class AdnServicios {
         }
 
         if(rta) {
-            datoAdn.setTipo("MUTANT");
-            adnController.guardaAdn(datoAdn);
+            datoAdn.setType("MUTANT");
+            dnaController.saveDna(datoAdn);
             return ResponseEntity.ok().build();
         }
         else {
-            datoAdn.setTipo("HUMAN");
-            adnController.guardaAdn(datoAdn);
+            datoAdn.setType("HUMAN");
+            dnaController.saveDna(datoAdn);
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("HUMAN");
 
         }
