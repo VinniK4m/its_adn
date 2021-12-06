@@ -2,7 +2,7 @@ package co.vinni.itsadn.itsadn.controller;
 
 import co.vinni.itsadn.itsadn.model.Dna;
 import co.vinni.itsadn.itsadn.model.Statistics;
-import co.vinni.itsadn.itsadn.model.repository.AdnRepository;
+import co.vinni.itsadn.itsadn.model.repository.DnaRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,22 +15,19 @@ import java.util.List;
  */
 @Log4j2
 @Service
-public class DnaImplementation implements DnaControlerS
+public class DnaImplementation implements DnaControllerS
 {
     @Autowired
-    private AdnRepository dnaRepository;
+    private DnaRepository dnaRepository;
     @Override
     public List<Dna> getAllDna() {
         return  dnaRepository.findAll();
     }
 
     @Override
-    public Dna saveDna(Dna dato) {
-        return dnaRepository.save(dato);
+    public void saveDna(Dna data) {
+        dnaRepository.save(data);
     }
-
-
-
 
     public Statistics getStatistics() {
         Statistics stats = new Statistics();

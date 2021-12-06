@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author Vinni - vinni_@yahoo.com
  */
 @SpringBootApplication
-public class ItsadnApplication {
+public class ItsdnaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ItsadnApplication.class, args);
+        SpringApplication.run(ItsdnaApplication.class, args);
     }
 
 }

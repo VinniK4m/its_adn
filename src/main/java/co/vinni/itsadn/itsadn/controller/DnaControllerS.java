@@ -9,8 +9,8 @@ import java.util.List;
  *
  * @author Vinni - vinni_@yahoo.com
  */
-public interface DnaControlerS {
+public interface DnaControllerS {
     List<Dna> getAllDna();
-    Dna saveDna(Dna dato);
+    void saveDna(Dna data);
     Statistics getStatistics();
 }

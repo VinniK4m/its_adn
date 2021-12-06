@@ -1,6 +1,6 @@
 package co.vinni.itsadn.itsadn;
 
-import co.vinni.itsadn.itsadn.logic.ChequedDna;
+import co.vinni.itsadn.itsadn.logic.CheckedDna;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -8,10 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class ChequedDnaTest {
-    private final ChequedDna chequed;
-    public ChequedDnaTest(){
-        chequed = new ChequedDna();
+class CheckedDnaTest {
+    private final CheckedDna checked;
+    CheckedDnaTest(){
+        checked = new CheckedDna();
     }
 
     /**
@@ -19,7 +19,7 @@ public class ChequedDnaTest {
      */
     @Test
     void verifyNull() {
-        boolean rta = chequed.isMutant(null);
+        boolean rta = checked.isMutant(null);
         assertFalse(rta);
     }
     /**
@@ -28,7 +28,7 @@ public class ChequedDnaTest {
     @Test
     void verifyLengthDif() {
         String[] dna = {"ATGCA","CATGC","GT","","CCCCTA","TCTG", "TCACTG"};
-        boolean rta = chequed.isMutant(dna);
+        boolean rta = checked.isMutant(dna);
         assertFalse(rta);
     }
     /**
@@ -37,7 +37,7 @@ public class ChequedDnaTest {
     @Test
     void verifySize() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA"};
-        boolean rta = chequed.isMutant(dna);
+        boolean rta = checked.isMutant(dna);
         assertFalse(rta);
     }
     /**
@@ -46,7 +46,7 @@ public class ChequedDnaTest {
     @Test
     void verifyCharacters() {
         String[] dna = {"ATGNGA","CAGTWC","TEATGT","AGUAGG","CCCCTA", "CCMCTA"};
-        boolean rta = chequed.isMutant(dna);
+        boolean rta = checked.isMutant(dna);
         assertFalse(rta);
     }
     /**
@@ -55,7 +55,7 @@ public class ChequedDnaTest {
     @Test
     void verifyIsMutant() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-        boolean rta = chequed.isMutant(dna);
+        boolean rta = checked.isMutant(dna);
         System.out.println(rta);
         assertTrue(rta);
     }
@@ -65,7 +65,7 @@ public class ChequedDnaTest {
     @Test
     void verifyIsHuman() {
         String[] dna =  {"ATGCGA","CTGTAC","TTATGT","AGAAGG","CCGCTA","TCACTG"};
-        boolean rta = chequed.isMutant(dna);
+        boolean rta = checked.isMutant(dna);
         assertFalse(rta);
     }
 }

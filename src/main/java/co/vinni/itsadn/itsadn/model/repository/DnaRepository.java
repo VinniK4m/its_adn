@@ -10,8 +10,8 @@ import java.util.List;
  *
  * @author Vinni - vinni_@yahoo.com
  */
-public interface AdnRepository extends JpaRepository<Dna,Long> {
-    List<Dna> findByType(String tipo);
+public interface DnaRepository extends JpaRepository<Dna,Long> {
+    List<Dna> findByType(String type);
 
 
 }

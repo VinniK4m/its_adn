@@ -3,11 +3,11 @@ package co.vinni.itsadn.itsadn.logic;
  *
  * @author Vinni - vinni_@yahoo.com
  */
-public class ChequedDna {
+public class CheckedDna {
     /**
-     * Funtion checked structure and response "Mutant" or "Human"
+     * Function checked structure and response "Mutant" or "Human"
      * @param dna String[]
-     * @return int valores 1 = Mutante 2 Humano 3 Error
+     * @return int values 1 = Mutant 2 Human 3 Error
      */
     public Boolean isMutant(String[] dna){
         if (dna == null){
@@ -18,7 +18,7 @@ public class ChequedDna {
         {
             return null;
         }
-        return validateExclud(matrix);
+        return validateExclude(matrix);
     }
 
     private String[][] buildMatrix(String[] dna) {
@@ -52,7 +52,7 @@ public class ChequedDna {
         return false;
     }
 
-    public boolean validateExclud(String[][] matrix) {
+    private boolean validateExclude(String[][] matrix) {
         if(verifyContent(matrix)){
             return false;
         }
@@ -65,11 +65,11 @@ public class ChequedDna {
 
 
     private boolean validateHorizontal(String[][] matrix) {
-        for (int x = 0; x < matrix.length; x++) {
-            for (int y = 0; y < matrix.length-3; y++) {
-                if (matrix[x][y].equals(matrix[x][y+1]) &&
-                        matrix[x][y].equals(matrix[x][y+2]) &&
-                        matrix[x][y].equals(matrix[x][y+3])){
+        for (String[] strings : matrix) {
+            for (int y = 0; y < matrix.length - 3; y++) {
+                if (strings[y].equals(strings[y + 1]) &&
+                        strings[y].equals(strings[y + 2]) &&
+                        strings[y].equals(strings[y + 3])) {
                     return true;
                 }
             }
