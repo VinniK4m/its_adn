@@ -8,6 +8,9 @@ import lombok.Setter;
  */
 @Setter
 @Getter
+/**
+ * Object Statistics
+ */
 public class Statistics {
     private Integer countMutantDna;
     private Integer countHumanDna;

@@ -14,6 +14,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
+/**
+ * Object DNA
+ */
 public class Dna {
 
 
