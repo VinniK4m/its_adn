@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 /**
- *
+ * Class that provides the API operations
  * @author Vinni - vinni_@yahoo.com
  */
 @RestController
@@ -34,23 +34,22 @@ public class AdnServices {
         return ResponseEntity.ok(estadistica);
     }
     @PostMapping("/mutant")
-    public ResponseEntity esMutante(@RequestBody Dna datoAdn){
-        //System.out.println(datoAdn);
+    public ResponseEntity esMutante(@RequestBody Dna dataAdn){
         ChequedDna verif = new ChequedDna();
-        Boolean rta = verif.isMutant(datoAdn.getDna());
+        Boolean rta = verif.isMutant(dataAdn.getDna());
         if (rta == null) {
 
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("ERROR STRUCTURE");
         }
 
         if(rta) {
-            datoAdn.setType("MUTANT");
-            dnaController.saveDna(datoAdn);
+            dataAdn.setType("MUTANT");
+            dnaController.saveDna(dataAdn);
             return ResponseEntity.ok().build();
         }
         else {
-            datoAdn.setType("HUMAN");
-            dnaController.saveDna(datoAdn);
+            dataAdn.setType("HUMAN");
+            dnaController.saveDna(dataAdn);
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("HUMAN");
 
         }
