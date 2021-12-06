@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn;
+package co.vinni.itsadn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

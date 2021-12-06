@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn.logic;
+package co.vinni.itsadn.logic;
 /**
  * Class to perform DNA strand validations and determine Mutant
  * @author Vinni - vinni_@yahoo.com
@@ -70,7 +70,7 @@ public class CheckedDna {
      * @param matrix String[][]
      * @return boolean
      */
-    public boolean validateExclude(String[][] matrix) {
+    private boolean validateExclude(String[][] matrix) {
         if (validateHorizontal(matrix)){
             return true;
         }else if (validateVertical(matrix)){

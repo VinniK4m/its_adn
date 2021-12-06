@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn.model;
+package co.vinni.itsadn.model;
 
 import lombok.*;
 
@@ -14,9 +14,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-/**
- * Object DNA
- */
 public class Dna {
 
 

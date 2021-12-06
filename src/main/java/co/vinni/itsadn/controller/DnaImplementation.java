@@ -1,8 +1,8 @@
-package co.vinni.itsadn.itsadn.controller;
+package co.vinni.itsadn.controller;
 
-import co.vinni.itsadn.itsadn.model.Dna;
-import co.vinni.itsadn.itsadn.model.Statistics;
-import co.vinni.itsadn.itsadn.model.repository.DnaRepository;
+import co.vinni.itsadn.model.Dna;
+import co.vinni.itsadn.model.Statistics;
+import co.vinni.itsadn.model.repository.DnaRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

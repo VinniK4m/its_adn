@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn.model;
+package co.vinni.itsadn.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +8,6 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-/**
- * Object Statistics
- */
 public class Statistics {
     private Integer countMutantDna;
     private Integer countHumanDna;

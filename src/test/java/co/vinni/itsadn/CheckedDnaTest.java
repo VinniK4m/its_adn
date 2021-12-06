@@ -1,6 +1,6 @@
-package co.vinni.itsadn.itsadn;
+package co.vinni.itsadn;
 
-import co.vinni.itsadn.itsadn.logic.CheckedDna;
+import co.vinni.itsadn.logic.CheckedDna;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
