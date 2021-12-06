@@ -1,4 +1,4 @@
-package co.vinni.itsadn.itsadn.modelo;
+package co.vinni.itsadn.itsadn.model;
 
 import lombok.*;
 
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Adn {
+public class Dna {
 
 
     @Id
@@ -23,7 +23,7 @@ public class Adn {
     private long id;
 
     private String[] dna;
-    private String tipo;
+    private String type;
 
 
 }
