@@ -97,7 +97,6 @@ class CheckedDnaTest {
     void verifyIsMutant() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
         boolean rta = checked.isMutant(dna);
-        System.out.println(rta);
         assertTrue(rta);
     }
     /**

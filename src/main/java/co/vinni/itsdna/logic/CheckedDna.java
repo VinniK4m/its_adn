@@ -133,7 +133,7 @@ public class CheckedDna {
             for (int y = 0; y < matrix.length-3; y++) {
                 if (matrix[x][y].equals(matrix[x+1][y+1]) &&
                         matrix[x][y].equals(matrix[x+2][y+2]) &&
-                        matrix[x][y].equals(matrix[x+2][y+3])){
+                        matrix[x][y].equals(matrix[x+3][y+3])){
                     return true;
                 }
             }

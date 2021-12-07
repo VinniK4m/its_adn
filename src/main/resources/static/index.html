@@ -12,18 +12,38 @@ App to detect mutants with DNA chains
 <table class="table table-striped table-responsive-md"
 >
     <tr>
-        <th>Url</th><th>Method</th><th>Function</th><th>Answer</th>
+        <th>Url</th><th>Method</th><th>Description</th><th>Parameters</th><th>Response</th>
     </tr>
     <tr>
-        <td>http://127.0.0.1:8862/itsdna/mutant</td>
+        <td>[url_cloud]/itsdna/mutant</td>
         <td>Post</td>
+        <td>Validate mutant or human and save in database</td>
         <td>{
-        “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
-        }</td><td>200 mutant</td>
+        “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}</td>
+        <td>200 mutant</td>
     </tr>
     <tr>
-        <td>http://127.0.0.1:8862/itsdna/stats</td><td>Get</td><td>Generate DNA data statistics</td>
+        <td>[url_cloud]/itsdna/stats</td>
+        <td>Get</td>
+        <td>Generate DNA data statistics</td>
+        <td>N/A</td>
         <td>{“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}</td>
+    </tr>
+    <tr>
+        <td>[url_cloud]/itsdna/</td>
+        <td>Get</td>
+        <td>List of DNA</td>
+        <td>N/A</td>
+        <td>
+            [
+            {
+            "id": 1,
+            "dna":["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"],
+            "type": "MUTANT"
+            }
+            ]
+        </td>
+
     </tr>
 </table>
 <h6>Author: Vinni</h6>
