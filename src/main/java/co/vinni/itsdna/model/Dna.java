@@ -1,4 +1,4 @@
-package co.vinni.itsadn.model;
+package co.vinni.itsdna.model;
 
 import lombok.*;
 

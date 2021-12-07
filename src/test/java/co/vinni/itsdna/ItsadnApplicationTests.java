@@ -1,4 +1,4 @@
-package co.vinni.itsadn;
+package co.vinni.itsdna;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

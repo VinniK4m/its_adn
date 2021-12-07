@@ -1,7 +1,7 @@
-package co.vinni.itsadn.model.repository;
+package co.vinni.itsdna.model.repository;
 
 
-import co.vinni.itsadn.model.Dna;
+import co.vinni.itsdna.model.Dna;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

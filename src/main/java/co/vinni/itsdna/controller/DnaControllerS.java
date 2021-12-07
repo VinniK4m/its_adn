@@ -1,8 +1,8 @@
-package co.vinni.itsadn.controller;
+package co.vinni.itsdna.controller;
 
 
-import co.vinni.itsadn.model.Dna;
-import co.vinni.itsadn.model.Statistics;
+import co.vinni.itsdna.model.Dna;
+import co.vinni.itsdna.model.Statistics;
 
 import java.util.List;
 /**

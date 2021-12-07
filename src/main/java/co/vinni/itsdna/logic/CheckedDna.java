@@ -1,4 +1,4 @@
-package co.vinni.itsadn.logic;
+package co.vinni.itsdna.logic;
 /**
  * Class to perform DNA strand validations and determine Mutant
  * @author Vinni - vinni_@yahoo.com
@@ -29,7 +29,10 @@ public class CheckedDna {
      * @param dna [] String
      * @return String[][]
      */
-    private String[][] buildMatrix(String[] dna) {
+    public String[][] buildMatrix(String[] dna) {
+        if (dna == null){
+            return null;
+        }
         String[][] matrix = new String[dna.length][dna.length];
         int n =0;
         for (String data : dna) {
@@ -43,6 +46,10 @@ public class CheckedDna {
                 return null;
             }
         }
+        if (matrix.length ==0)
+        {
+            return null;
+        }
         return matrix;
     }
 
@@ -51,7 +58,7 @@ public class CheckedDna {
      * @param matrix String[][]
      * @return boolean
      */
-    private boolean verifyContent(String[][] matrix){
+    public boolean verifyContent(String[][] matrix){
         for (String[] row : matrix) {
             for (int y = 0; y < matrix.length; y++) {
                 if (!(row[y].equals("A") ||
@@ -70,7 +77,7 @@ public class CheckedDna {
      * @param matrix String[][]
      * @return boolean
      */
-    private boolean validateExclude(String[][] matrix) {
+    public boolean validateExclude(String[][] matrix) {
         if (validateHorizontal(matrix)){
             return true;
         }else if (validateVertical(matrix)){
@@ -83,7 +90,7 @@ public class CheckedDna {
      * @param matrix String[][]
      * @return boolean
      */
-    private boolean validateHorizontal(String[][] matrix) {
+    public boolean validateHorizontal(String[][] matrix) {
         for (String[] row : matrix) {
             for (int y = 0; y < matrix.length - 3; y++) {
                 if (row[y].equals(row[y + 1]) &&
@@ -101,7 +108,7 @@ public class CheckedDna {
      * @param matrix String[][]
      * @return boolean
      */
-    private boolean validateVertical(String[][] matrix) {
+    public boolean validateVertical(String[][] matrix) {
 
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix.length-3; x++) {
@@ -121,7 +128,7 @@ public class CheckedDna {
      * @param matrix String[][]
      * @return boolean
      */
-    private boolean validateDiagonal(String[][] matrix) {
+    public boolean validateDiagonal(String[][] matrix) {
         for (int x = 0; x < matrix.length-3; x++) {
             for (int y = 0; y < matrix.length-3; y++) {
                 if (matrix[x][y].equals(matrix[x+1][y+1]) &&

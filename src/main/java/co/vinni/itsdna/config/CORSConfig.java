@@ -1,4 +1,4 @@
-package co.vinni.itsadn.config;
+package co.vinni.itsdna.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
