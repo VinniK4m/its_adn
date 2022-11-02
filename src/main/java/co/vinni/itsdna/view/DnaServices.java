@@ -30,7 +30,7 @@ public class DnaServices {
 
     @GetMapping("/version")
     public ResponseEntity version(){
-        return ResponseEntity.status(HttpStatus.OK).body("Version 1.2");
+        return ResponseEntity.status(HttpStatus.OK).body("Version 1.23");
     }
 
     @GetMapping("/stats")
