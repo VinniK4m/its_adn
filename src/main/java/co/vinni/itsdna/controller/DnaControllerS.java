@@ -13,4 +13,6 @@ public interface DnaControllerS {
     List<Dna> getAllDna();
     void saveDna(Dna data);
     Statistics getStatistics();
+
+    String getVersion();
 }

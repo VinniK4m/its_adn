@@ -42,4 +42,19 @@ public class DnaImplementation implements DnaControllerS
         }
         return stats;
     }
+
+
+    /**
+     * Method for version
+     * @return
+     */
+    public String getVersion() {
+        String version = "";
+        List<Dna> adnMutant =  this.dnaRepository.findByType("MUTANT");
+        if (adnMutant.size() > 0){
+            version = "version "+adnMutant.size();
+        }
+        return version;
+
+    }
 }
