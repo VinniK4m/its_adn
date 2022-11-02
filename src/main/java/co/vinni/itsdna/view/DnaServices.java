@@ -28,7 +28,7 @@ public class DnaServices {
         return dnaController.getAllDna();
     }
 
-    @GetMapping("/")
+    @GetMapping("/version")
     public ResponseEntity version(){
         return ResponseEntity.status(HttpStatus.OK).body("Version 1.2");
     }
