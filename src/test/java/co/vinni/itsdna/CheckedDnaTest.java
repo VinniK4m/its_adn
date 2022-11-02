@@ -18,7 +18,7 @@ class CheckedDnaTest {
      * Test check dna is null
      */
     @Test
-    void verifyNull() {
+    public void verifyNull() {
         String [][] matrix = checked.buildMatrix(null);
         assertNull(matrix);
     }
@@ -26,7 +26,7 @@ class CheckedDnaTest {
      * Test check length of dna is complete
      */
     @Test
-    void verifyLengthDif() {
+    public void verifyLengthDif() {
         String[] dna = {"ATGCA","CATGC","GT","","CCCCTA","TCTG", "TCACTG"};
         String [][] matrix = checked.buildMatrix(dna);
         assertNull(matrix);
@@ -35,7 +35,7 @@ class CheckedDnaTest {
      * Test check size structure dna is nxn in row and data
      */
     @Test
-    void verifySize() {
+    public void verifySize() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA"};
         String [][] matrix = checked.buildMatrix(dna);
         assertNull(matrix);
@@ -44,7 +44,7 @@ class CheckedDnaTest {
      * Test Check that it only containts the charactes "ACGT"
      */
     @Test
-    void verifyCharacters() {
+    public void verifyCharacters() {
         String[] dna = {"ATGNGA","CAGTWC","TEATGT","AGUAGG","CCCCTA", "CCMCTA"};
         String [][] matrix = checked.buildMatrix(dna);
         boolean rta = checked.verifyContent(matrix);
@@ -55,7 +55,7 @@ class CheckedDnaTest {
      * test checked DNA don't empty
      */
     @Test
-    void verifyEmpty() {
+    public void verifyEmpty() {
         String[] dna = {};
         String [][] matrix = checked.buildMatrix(dna);
         assertNull(matrix);
@@ -64,7 +64,7 @@ class CheckedDnaTest {
      * Test check string dna result Mutant
      */
     @Test
-    void verifyHorizontalOK() {
+    public void verifyHorizontalOK() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
         String [][] matrix = checked.buildMatrix(dna);
         boolean rta = checked.validateHorizontal(matrix);
@@ -74,7 +74,7 @@ class CheckedDnaTest {
      * Test check string dna result Mutant
      */
     @Test
-    void verifyVerticalOK() {
+    public void verifyVerticalOK() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
         String [][] matrix = checked.buildMatrix(dna);
         boolean rta = checked.validateVertical(matrix);
@@ -84,7 +84,7 @@ class CheckedDnaTest {
      * Test check string dna result Mutant
      */
     @Test
-    void verifyDiagonalOK() {
+    public void verifyDiagonalOK() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
         String [][] matrix = checked.buildMatrix(dna);
         boolean rta = checked.validateDiagonal(matrix);
@@ -94,7 +94,7 @@ class CheckedDnaTest {
      * Test check string dna result Mutant
      */
     @Test
-    void verifyIsMutant() {
+    public void verifyIsMutant() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
         boolean rta = checked.isMutant(dna);
         assertTrue(rta);
@@ -103,7 +103,7 @@ class CheckedDnaTest {
      * Test check string dna result Human
      */
     @Test
-    void verifyIsHuman() {
+    public void verifyIsHuman() {
         String[] dna =  {"ATGCGA","CTGTAC","TTATGT","AGAAGG","CCGCTA","TCACTG"};
         boolean rta = checked.isMutant(dna);
         assertFalse(rta);
