@@ -27,6 +27,12 @@ public class DnaServices {
     public List<Dna> initial(Model model){
         return dnaController.getAllDna();
     }
+
+    @GetMapping("/")
+    public ResponseEntity version(){
+        return ResponseEntity.status(HttpStatus.OK).body("Version 1.2");
+    }
+
     @GetMapping("/stats")
     public ResponseEntity<Statistics> buildStats(Model model){
         Statistics stats =dnaController.getStatistics();
