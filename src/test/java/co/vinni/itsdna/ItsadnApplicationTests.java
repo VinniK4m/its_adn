@@ -13,4 +13,10 @@ class ItsdnaApplicationTests {
         assertEquals(2,2);
     }
 
+    @Test
+    void contextLoads1() {
+        assertEquals(2,2);
+    }
+
+
 }
