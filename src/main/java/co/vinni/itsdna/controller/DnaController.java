@@ -1,7 +1,7 @@
-package co.vinni.itsdna.view;
+package co.vinni.itsdna.controller;
 
 
-import co.vinni.itsdna.controller.DnaControllerS;
+import co.vinni.itsdna.view.DnaService;
 import co.vinni.itsdna.logic.CheckedDna;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
@@ -18,25 +18,25 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/itsdna")
-public class DnaServices {
+public class DnaController {
 
     @Autowired
-    private DnaControllerS dnaController;
+    private DnaService dnaService;
 
     @GetMapping("/")
     public List<Dna> initial(Model model){
-        return dnaController.getAllDna();
+        return dnaService.getAllDna();
     }
 
     @GetMapping("/version")
     public ResponseEntity version(){
-        String version = dnaController.getVersion();
+        String version = dnaService.getVersion();
         return ResponseEntity.status(HttpStatus.OK).body(version);
     }
 
     @GetMapping("/stats")
     public ResponseEntity<Statistics> buildStats(Model model){
-        Statistics stats =dnaController.getStatistics();
+        Statistics stats =dnaService.getStatistics();
 
         return ResponseEntity.ok(stats);
     }
@@ -51,12 +51,12 @@ public class DnaServices {
 
         if(rta) {
             dataDna.setType("MUTANT");
-            dnaController.saveDna(dataDna);
+            dnaService.saveDna(dataDna);
             return ResponseEntity.ok().build();
         }
         else {
             dataDna.setType("HUMAN");
-            dnaController.saveDna(dataDna);
+            dnaService.saveDna(dataDna);
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("HUMAN");
 
         }

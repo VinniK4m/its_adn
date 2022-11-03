@@ -1,4 +1,4 @@
-package co.vinni.itsdna.controller;
+package co.vinni.itsdna.view;
 
 
 import co.vinni.itsdna.model.Dna;
@@ -9,7 +9,7 @@ import java.util.List;
  * Operations for data base
  * @author Vinni - vinni_@yahoo.com
  */
-public interface DnaControllerS {
+public interface DnaService {
     List<Dna> getAllDna();
     void saveDna(Dna data);
     Statistics getStatistics();

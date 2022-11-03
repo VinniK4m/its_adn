@@ -1,4 +1,4 @@
-package co.vinni.itsdna.controller;
+package co.vinni.itsdna.view;
 
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Log4j2
 @Service
-public class DnaImplementation implements DnaControllerS
+public class DnaImplementation implements DnaService
 {
     @Autowired
     private DnaRepository dnaRepository;
