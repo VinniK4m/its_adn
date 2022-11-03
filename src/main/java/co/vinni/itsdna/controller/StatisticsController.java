@@ -22,5 +22,9 @@ public class StatisticsController {
     public List<Statistics> getAll(){
         return statisticsService.getAll();
     }
+    @GetMapping("/{id}")
+    public List<Statistics> getById(Long id){
+        return statisticsService.getAll();
+    }
 
 }
