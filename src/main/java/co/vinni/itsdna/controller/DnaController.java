@@ -28,11 +28,6 @@ public class DnaController {
         return dnaService.getAllDna();
     }
 
-    @GetMapping("/abc/")
-    public List<Dna> initialAbc(Model model){
-        return dnaService.getAllDna();
-    }
-
     @GetMapping("/version")
     public ResponseEntity version(){
         String version = dnaService.getVersion();
