@@ -1,6 +1,7 @@
 package co.vinni.itsdna.view;
 
 
+import co.vinni.itsdna.DnaDto;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface DnaService {
     List<Dna> getAllDna();
-    void saveDna(Dna data);
+    void saveDna(DnaDto data);
     Statistics getStatistics();
 
     String getVersion();

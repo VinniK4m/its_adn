@@ -1,11 +1,9 @@
 package co.vinni.itsdna.controller;
 
-import co.vinni.itsdna.model.Dna;
+
 import co.vinni.itsdna.model.Statistics;
-import co.vinni.itsdna.view.DnaService;
 import co.vinni.itsdna.view.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

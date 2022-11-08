@@ -9,10 +9,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Vinni - vinni_@yahoo.com
  */
 @Configuration
-public class CORSConfig {
+public class CorsConfig {
 
     @Bean
-    public WebMvcConfigurer CORSConfigurer(){
+    public WebMvcConfigurer CorsConfig(){
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {

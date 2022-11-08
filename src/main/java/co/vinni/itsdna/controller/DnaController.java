@@ -1,7 +1,8 @@
 package co.vinni.itsdna.controller;
 
 
-import co.vinni.itsdna.view.DnaService;
+import co.vinni.itsdna.DnaDto;
+import co.vinni.itsdna.view.DnaImplementation;
 import co.vinni.itsdna.logic.CheckedDna;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
@@ -21,7 +22,7 @@ import java.util.List;
 public class DnaController {
 
     @Autowired
-    private DnaService dnaService;
+    private DnaImplementation dnaService;
 
     @GetMapping("/")
     public List<Dna> initial(Model model){
@@ -29,7 +30,7 @@ public class DnaController {
     }
 
     @GetMapping("/version")
-    public ResponseEntity version(){
+    public ResponseEntity<String> version(){
         String version = dnaService.getVersion();
         return ResponseEntity.status(HttpStatus.OK).body(version);
     }
@@ -37,11 +38,10 @@ public class DnaController {
     @GetMapping("/stats")
     public ResponseEntity<Statistics> buildStats(Model model){
         Statistics stats =dnaService.getStatistics();
-
         return ResponseEntity.ok(stats);
     }
     @PostMapping("/mutant")
-    public ResponseEntity isMutant(@RequestBody Dna dataDna){
+    public ResponseEntity<String> isMutant(@RequestBody DnaDto dataDna){
         CheckedDna verify = new CheckedDna();
         Boolean rta = verify.isMutant(dataDna.getDna());
         if (rta == null) {
