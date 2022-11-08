@@ -13,14 +13,15 @@ import java.sql.Types;
  * @author Vinni@
  */
 public class SQLiteDialect extends Dialect {
-    final String SQL_INSERTID = "select last_insert_rowid()";
-    final String TEXT_INTEGER ="integer";
+    static final String SQLINSERTID = "select last_insert_rowid()";
+    static final String TEXTINTEGER ="integer";
+    static final String SUBSTR = "substr";
 
     public SQLiteDialect() {
-        registerColumnType(Types.BIT, "integer");
+        registerColumnType(Types.BIT, TEXTINTEGER);
         registerColumnType(Types.TINYINT, "tinyint");
         registerColumnType(Types.SMALLINT, "smallint");
-        registerColumnType(Types.INTEGER, "integer");
+        registerColumnType(Types.INTEGER, TEXTINTEGER);
         registerColumnType(Types.BIGINT, "bigint");
         registerColumnType(Types.FLOAT, "float");
         registerColumnType(Types.REAL, "real");
@@ -38,12 +39,12 @@ public class SQLiteDialect extends Dialect {
         registerColumnType(Types.LONGVARBINARY, "blob");
         registerColumnType(Types.BLOB, "blob");
         registerColumnType(Types.CLOB, "clob");
-        registerColumnType(Types.BOOLEAN, "integer");
+        registerColumnType(Types.BOOLEAN, TEXTINTEGER);
 
         registerFunction("concat", new VarArgsSQLFunction(StringType.INSTANCE, "", "||", ""));
         registerFunction("mod", new SQLFunctionTemplate(StringType.INSTANCE, "?1 % ?2"));
-        registerFunction("substr", new StandardSQLFunction("substr", StringType.INSTANCE));
-        registerFunction("substring", new StandardSQLFunction("substr", StringType.INSTANCE));
+        registerFunction(SUBSTR, new StandardSQLFunction(SUBSTR, StringType.INSTANCE));
+        registerFunction("substring", new StandardSQLFunction(SUBSTR, StringType.INSTANCE));
     }
 
     public boolean supportsIdentityColumns() {
@@ -55,17 +56,21 @@ public class SQLiteDialect extends Dialect {
     }
 
     public String getIdentityColumnString() {
-        return TEXT_INTEGER;
+        return TEXTINTEGER;
     }
 
     public String getIdentitySelectString() {
-        return SQL_INSERTID;
+        return SQLINSERTID;
     }
 
+    @Override
+    @Deprecated
     public boolean supportsLimit() {
         return true;
     }
 
+    @Override
+    @Deprecated
     protected String getLimitString(String query, boolean hasOffset) {
         return new StringBuffer(query.length() + 20).append(query).append(hasOffset ? " limit ? offset ?" : " limit ?")
                 .toString();
