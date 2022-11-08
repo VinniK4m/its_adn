@@ -11,15 +11,15 @@ public class CheckedDna {
      */
     public Boolean isMutant(String[] dna){
         if (dna == null){
-            return null;
+            return false;
         }
         String[][] matrix = buildMatrix(dna);
         if (matrix == null)
         {
-            return null;
+            return false;
         }
         if (!verifyContent(matrix)){
-            return null;
+            return false;
         }
         return validateExclude(matrix);
     }
@@ -31,7 +31,7 @@ public class CheckedDna {
      */
     public String[][] buildMatrix(String[] dna) {
         if (dna == null){
-            return null;
+            return new String[0][0];
         }
         String[][] matrix = new String[dna.length][dna.length];
         int n =0;
@@ -43,12 +43,12 @@ public class CheckedDna {
             }
             else
             {
-                return null;
+                return new String[0][0];
             }
         }
         if (matrix.length ==0)
         {
-            return null;
+            return new String[0][0];
         }
         return matrix;
     }

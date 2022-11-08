@@ -22,7 +22,7 @@ public class Dna {
     @SequenceGenerator(sequenceName = "sq_appadn", allocationSize = 1, name = "FUNCIO_SEQ")
     private long id;
 
-    private String[] dna;
+    private String[] acidodesoxirribonucleico;
     private String type;
 
 

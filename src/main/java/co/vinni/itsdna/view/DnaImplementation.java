@@ -62,7 +62,7 @@ public class DnaImplementation implements DnaService
     public String getVersion() {
         String version = "";
         List<Dna> adnMutant =  this.dnaRepository.findByType("MUTANT");
-        if (adnMutant.size() > 0){
+        if (!adnMutant.isEmpty()){
             version = "version "+adnMutant.size();
         }
         return version;
