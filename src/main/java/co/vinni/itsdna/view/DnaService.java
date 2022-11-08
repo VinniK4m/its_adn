@@ -1,7 +1,7 @@
 package co.vinni.itsdna.view;
 
 
-import co.vinni.itsdna.DnaDto;
+import co.vinni.itsdna.dto.DnaDto;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 
