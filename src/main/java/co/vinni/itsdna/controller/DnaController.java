@@ -1,7 +1,7 @@
 package co.vinni.itsdna.controller;
 
 
-import co.vinni.itsdna.DnaDto;
+import co.vinni.itsdna.dto.DnaDto;
 import co.vinni.itsdna.view.DnaImplementation;
 import co.vinni.itsdna.logic.CheckedDna;
 import co.vinni.itsdna.model.Dna;
@@ -43,7 +43,7 @@ public class DnaController {
     @PostMapping("/mutant")
     public ResponseEntity<String> isMutant(@RequestBody DnaDto dataDna){
         CheckedDna verify = new CheckedDna();
-        Boolean rta = verify.isMutant(dataDna.getDna());
+        Boolean rta = verify.isMutant(dataDna.getArrayDna());
         if (rta == null) {
 
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("ERROR STRUCTURE");
