@@ -11,15 +11,15 @@ public class CheckedDna {
      */
     public Boolean isMutant(String[] dna){
         if (dna == null){
-            return null;
+            return false;
         }
         String[][] matrix = buildMatrix(dna);
         if (matrix == null)
         {
-            return null;
+            return false;
         }
         if (!verifyContent(matrix)){
-            return null;
+            return false;
         }
         return validateExclude(matrix);
     }

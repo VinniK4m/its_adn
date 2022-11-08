@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class CheckedDnaTest {
+class CheckedDnaTest {
     private final CheckedDna checked;
     CheckedDnaTest(){
         checked = new CheckedDna();
