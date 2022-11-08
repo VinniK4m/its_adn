@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class DnaDto {
     private long id;
 
-    private String[] arrayDna;
+    private String arrayDna;
     private String type;
 }
