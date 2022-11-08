@@ -95,7 +95,7 @@ class CheckedDnaTest {
      */
     @Test
     void verifyIsMutant() {
-        String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+        String dna = "ATGCGA;CAGTGC;TTATGT;AGAAGG;CCCCTA;TCACTG";
         boolean rta = checked.isMutant(dna);
         assertTrue(rta);
     }
@@ -104,7 +104,7 @@ class CheckedDnaTest {
      */
     @Test
     void verifyIsHuman() {
-        String[] dna =  {"ATGCGA","CTGTAC","TTATGT","AGAAGG","CCGCTA","TCACTG"};
+        String dna =  "ATGCGA;CTGTAC;TTATGT;AGAAGG;CCGCTA;TCACTG";
         boolean rta = checked.isMutant(dna);
         assertFalse(rta);
     }
