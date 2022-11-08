@@ -1,4 +1,4 @@
-package co.vinni.itsdna;
+package co.vinni.itsdna.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class DnaDto {
     private long id;
 
-    private String[] dna;
+    private String[] arrayDna;
     private String type;
 }

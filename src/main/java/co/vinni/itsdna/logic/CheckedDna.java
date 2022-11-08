@@ -9,7 +9,7 @@ public class CheckedDna {
      * @param dna String[]
      * @return int values 1 = Mutant 2 Human 3 Error
      */
-    public Boolean isMutant(String[] dna){
+    public boolean isMutant(String[] dna){
         if (dna == null){
             return false;
         }
@@ -30,8 +30,9 @@ public class CheckedDna {
      * @return String[][]
      */
     public String[][] buildMatrix(String[] dna) {
+        String[][] arrEmpty = new String[0][0];
         if (dna == null){
-            return null;
+            return arrEmpty;
         }
         String[][] matrix = new String[dna.length][dna.length];
         int n =0;
@@ -43,12 +44,12 @@ public class CheckedDna {
             }
             else
             {
-                return null;
+                return arrEmpty;
             }
         }
         if (matrix.length ==0)
         {
-            return null;
+            return arrEmpty;
         }
         return matrix;
     }

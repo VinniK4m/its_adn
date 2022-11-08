@@ -1,6 +1,6 @@
 package co.vinni.itsdna.view;
 
-import co.vinni.itsdna.DnaDto;
+import co.vinni.itsdna.dto.DnaDto;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 import co.vinni.itsdna.model.repository.DnaRepository;
@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public class DnaImplementation implements DnaService
      * @return
      */
     private Dna convertToEntity(DnaDto data) {
-        return new Dna(data.getId(), data.getDna(), data.getType());
+        return new Dna(data.getId(), Arrays.asList(data.getArrayDna()), data.getType());
     }
 
     public Statistics getStatistics() {

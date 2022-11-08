@@ -16,7 +16,8 @@ public class SQLiteDialect extends Dialect {
     static final String SQLINSERTID = "select last_insert_rowid()";
     static final String TEXTINTEGER ="integer";
     static final String SUBSTR = "substr";
-
+    static final String TEMPORALY = "create temporary table if not exists";
+    static final String CURRENT = "select current_timestamp";
     public SQLiteDialect() {
         registerColumnType(Types.BIT, TEXTINTEGER);
         registerColumnType(Types.TINYINT, "tinyint");
@@ -64,13 +65,11 @@ public class SQLiteDialect extends Dialect {
     }
 
     @Override
-    @Deprecated
     public boolean supportsLimit() {
         return true;
     }
 
     @Override
-    @Deprecated
     protected String getLimitString(String query, boolean hasOffset) {
         return new StringBuffer(query.length() + 20).append(query).append(hasOffset ? " limit ? offset ?" : " limit ?")
                 .toString();
@@ -81,7 +80,7 @@ public class SQLiteDialect extends Dialect {
     }
 
     public String getCreateTemporaryTableString() {
-        return "create temporary table if not exists";
+        return TEMPORALY;
     }
 
     public boolean dropTemporaryTableAfterUse() {
@@ -100,7 +99,7 @@ public class SQLiteDialect extends Dialect {
 
     @Override
     public String getCurrentTimestampSelectString() {
-        return "select current_timestamp";
+        return CURRENT;
     }
 
     @Override

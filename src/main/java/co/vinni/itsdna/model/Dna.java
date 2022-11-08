@@ -3,6 +3,9 @@ package co.vinni.itsdna.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+
 /**
  *
  * @author Vinni - vinni_@yahoo.com
@@ -14,7 +17,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Dna {
+public class Dna implements Serializable {
 
 
     @Id
@@ -22,7 +25,7 @@ public class Dna {
     @SequenceGenerator(sequenceName = "sq_appadn", allocationSize = 1, name = "FUNCIO_SEQ")
     private long id;
 
-    private String[] dna;
+    private List<String> arrayDna;
     private String type;
 
 
