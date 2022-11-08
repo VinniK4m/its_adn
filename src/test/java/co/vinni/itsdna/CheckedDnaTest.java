@@ -20,7 +20,7 @@ class CheckedDnaTest {
     @Test
     void verifyNull() {
         String [][] matrix = checked.buildMatrix(null);
-        assertFalse(matrix == null);
+        assertNull(matrix);
     }
     /**
      * Test check length of dna is complete
@@ -29,7 +29,7 @@ class CheckedDnaTest {
     void verifyLengthDif() {
         String[] dna = {"ATGCA","CATGC","GT","","CCCCTA","TCTG", "TCACTG"};
         String [][] matrix = checked.buildMatrix(dna);
-        assertFalse(matrix.length > 0);
+        assertNull(matrix);
     }
     /**
      * Test check size structure dna is nxn in row and data
@@ -38,7 +38,7 @@ class CheckedDnaTest {
     void verifySize() {
         String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA"};
         String [][] matrix = checked.buildMatrix(dna);
-        assertFalse(matrix.length > 0);
+        assertNull(matrix);
     }
     /**
      * Test Check that it only containts the charactes "ACGT"
@@ -58,7 +58,7 @@ class CheckedDnaTest {
     void verifyEmpty() {
         String[] dna = {};
         String [][] matrix = checked.buildMatrix(dna);
-        assertFalse(matrix.length > 0);
+        assertNull(matrix);
     }
     /**
      * Test check string dna result Mutant

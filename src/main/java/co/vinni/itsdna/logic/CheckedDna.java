@@ -31,7 +31,7 @@ public class CheckedDna {
      */
     public String[][] buildMatrix(String[] dna) {
         if (dna == null){
-            return new String[0][0];
+            return null;
         }
         String[][] matrix = new String[dna.length][dna.length];
         int n =0;
@@ -43,12 +43,12 @@ public class CheckedDna {
             }
             else
             {
-                return new String[0][0];
+                return null;
             }
         }
         if (matrix.length ==0)
         {
-            return new String[0][0];
+            return null;
         }
         return matrix;
     }
