@@ -1,5 +1,6 @@
 package co.vinni.itsdna.view;
 
+import co.vinni.itsdna.DnaDto;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 import co.vinni.itsdna.model.repository.DnaRepository;
@@ -25,8 +26,18 @@ public class DnaImplementation implements DnaService
     }
 
     @Override
-    public void saveDna(Dna data) {
-        dnaRepository.save(data);
+    public void saveDna(DnaDto data) {
+        Dna entity = this.convertToEntity(data);
+        dnaRepository.save(entity);
+    }
+
+    /**
+     * Method for change dto to entity
+     * @param data
+     * @return
+     */
+    private Dna convertToEntity(DnaDto data) {
+        return new Dna(data.getId(), data.getDna(), data.getType());
     }
 
     public Statistics getStatistics() {

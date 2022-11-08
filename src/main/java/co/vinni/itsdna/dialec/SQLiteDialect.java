@@ -13,6 +13,8 @@ import java.sql.Types;
  * @author Vinni@
  */
 public class SQLiteDialect extends Dialect {
+    final String SQL_INSERTID = "select last_insert_rowid()";
+    final String TEXT_INTEGER ="integer";
 
     public SQLiteDialect() {
         registerColumnType(Types.BIT, "integer");
@@ -53,11 +55,11 @@ public class SQLiteDialect extends Dialect {
     }
 
     public String getIdentityColumnString() {
-        return "integer";
+        return TEXT_INTEGER;
     }
 
     public String getIdentitySelectString() {
-        return "select last_insert_rowid()";
+        return SQL_INSERTID;
     }
 
     public boolean supportsLimit() {
