@@ -18,7 +18,7 @@ class ItsdnaApplicationTests {
 
     @Test
     void contextLoads() {
-        assertEquals(2,2);
+        assertEquals(false,statisticsService.getExistsById(0l));
     }
 
     @Test

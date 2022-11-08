@@ -15,4 +15,9 @@ public class StatisticsService {
     public List<Statistics> getAll(){
         return staticticsRepository.findAll();
     }
+
+
+    public boolean getExistsById(Long id){
+        return staticticsRepository.existsById(id);
+    }
 }
