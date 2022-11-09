@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,9 +26,11 @@ public class DnaImplementation implements DnaService
     }
 
     @Override
-    public void saveDna(DnaDto data) {
+    public Dna saveDna(DnaDto data) {
+        if (data == null || data.getArrayDna().isEmpty() || data.getType().isEmpty())
+            return null;
         Dna entity = this.convertToEntity(data);
-        dnaRepository.save(entity);
+        return dnaRepository.save(entity);
     }
 
     /**
@@ -38,7 +39,7 @@ public class DnaImplementation implements DnaService
      * @return Dna entity
      */
 
-    private Dna convertToEntity(DnaDto data) {
+    public Dna convertToEntity(DnaDto data) {
         return new Dna(data.getId(), data.getArrayDna(), data.getType());
     }
 
@@ -70,4 +71,6 @@ public class DnaImplementation implements DnaService
         return version;
 
     }
+
+
 }

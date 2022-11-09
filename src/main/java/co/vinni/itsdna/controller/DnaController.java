@@ -43,21 +43,23 @@ public class DnaController {
     @PostMapping("/mutant")
     public ResponseEntity<String> isMutant(@RequestBody DnaDto dataDna){
         CheckedDna verify = new CheckedDna();
-        Boolean rta = verify.isMutant(dataDna.getArrayDna());
-        if (rta == null) {
-
+        if (dataDna == null || dataDna.getArrayDna().isEmpty()){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("ERROR STRUCTURE");
         }
-
+        boolean rta = verify.isMutant(dataDna.getArrayDna());
         if(rta) {
             dataDna.setType("MUTANT");
-            dnaService.saveDna(dataDna);
-            return ResponseEntity.ok().build();
+            if (dnaService.saveDna(dataDna)!= null)
+                return ResponseEntity.ok().build();
+            else
+                return ResponseEntity.notFound().build();
         }
         else {
             dataDna.setType("HUMAN");
-            dnaService.saveDna(dataDna);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("HUMAN");
+            if (dnaService.saveDna(dataDna)!= null)
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("HUMAN");
+            else
+                return ResponseEntity.notFound().build();
 
         }
 
