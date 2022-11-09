@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *
@@ -12,7 +11,6 @@ import java.util.List;
  */
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -25,7 +23,7 @@ public class Dna implements Serializable {
     @SequenceGenerator(sequenceName = "sq_appadn", allocationSize = 1, name = "FUNCIO_SEQ")
     private long id;
 
-    private List<String> arrayDna;
+    private String arrayDna;
     private String type;
 
 
