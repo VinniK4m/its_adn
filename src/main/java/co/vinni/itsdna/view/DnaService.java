@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface DnaService {
     List<Dna> getAllDna();
-    void saveDna(DnaDto data);
+    Dna saveDna(DnaDto data);
     Statistics getStatistics();
 
     String getVersion();
