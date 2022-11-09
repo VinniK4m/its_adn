@@ -65,11 +65,13 @@ public class SQLiteDialect extends Dialect {
     }
 
     @Override
+    @Deprecated
     public boolean supportsLimit() {
         return true;
     }
 
     @Override
+    @Deprecated
     protected String getLimitString(String query, boolean hasOffset) {
         return new StringBuffer(query.length() + 20).append(query).append(hasOffset ? " limit ? offset ?" : " limit ?")
                 .toString();
