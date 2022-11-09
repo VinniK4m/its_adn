@@ -34,11 +34,12 @@ public class DnaImplementation implements DnaService
 
     /**
      * Method for change dto to entity
-     * @param data
-     * @return
+     * @param data DataDto object
+     * @return Dna entity
      */
+
     private Dna convertToEntity(DnaDto data) {
-        return new Dna(data.getId(), Arrays.asList(data.getArrayDna()), data.getType());
+        return new Dna(data.getId(), data.getArrayDna(), data.getType());
     }
 
     public Statistics getStatistics() {
@@ -58,7 +59,7 @@ public class DnaImplementation implements DnaService
 
     /**
      * Method for version
-     * @return
+     * @return String
      */
     public String getVersion() {
         String version = "";

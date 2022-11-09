@@ -9,11 +9,12 @@ public class CheckedDna {
      * @param dna String[]
      * @return int values 1 = Mutant 2 Human 3 Error
      */
-    public boolean isMutant(String[] dna){
+    public boolean isMutant(String dna){
         if (dna == null){
             return false;
         }
-        String[][] matrix = buildMatrix(dna);
+        String [] arrayADN = dna.split(";");
+        String[][] matrix = buildMatrix(arrayADN);
         if (matrix == null)
         {
             return false;
