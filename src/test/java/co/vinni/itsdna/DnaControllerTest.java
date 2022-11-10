@@ -54,7 +54,7 @@ public class DnaControllerTest {
     void isMutant() {
         List stats = dnaService.getAllDna();
         System.out.println(stats.size());
-        assertEquals(0, stats.size());
+        assertEquals(1, stats.size());
     }
 
 
