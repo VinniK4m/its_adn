@@ -31,11 +31,6 @@ public class DnaControllerTest {
     }
 
 
-    @Test
-    public void contextLoads() throws Exception {
-        assertTrue((controller).isNotNull());
-    }
-
 
 
 
