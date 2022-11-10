@@ -2,6 +2,7 @@ package co.vinni.itsdna;
 
 
 import co.vinni.itsdna.controller.DnaController;
+import co.vinni.itsdna.controller.StatisticsController;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 import co.vinni.itsdna.view.DnaImplementation;
@@ -19,6 +20,8 @@ public class DnaControllerTest {
 
     @Autowired
     private DnaController controller;
+    @Autowired
+    private StatisticsController statisticsController;
 
     @Autowired
     private DnaImplementation dnaService;
@@ -63,10 +66,17 @@ public class DnaControllerTest {
         assertNotNull(rta);
     }
     @Test
-    void buildStatsController() {
+    void staticGetAllController() {
 
-        Object rta = controller.buildStats(null);
+        Object rta = statisticsController.getAll();
         assertNotNull(rta);
+    }
+
+    @Test
+    void getByIdController() {
+
+        Object rta = statisticsController.getById(1L);
+        assertNull(rta);
     }
 
 }
