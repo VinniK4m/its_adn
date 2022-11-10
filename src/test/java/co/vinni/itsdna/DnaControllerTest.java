@@ -2,12 +2,12 @@ package co.vinni.itsdna;
 
 
 import co.vinni.itsdna.controller.DnaController;
+import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 import co.vinni.itsdna.view.DnaImplementation;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -30,14 +30,9 @@ public class DnaControllerTest {
 
     }
 
-
-
-
-
     @Test
     void verifyNull() {
         String version = dnaService.getVersion();
-        System.out.println(version);
         assertEquals("", version);
     }
 
@@ -45,18 +40,33 @@ public class DnaControllerTest {
     @Test
     void buildStats() {
         Statistics stats = dnaService.getStatistics();
-        System.out.println(stats.equals(stats));
-        assertEquals(stats,stats);
+        assertNotNull(stats.getCountHumanDna());
     }
 
 
     @Test
     void isMutant() {
-        List stats = dnaService.getAllDna();
-        System.out.println(stats.size());
-        assertEquals(1, stats.size());
+        List<Dna> stats = dnaService.getAllDna();
+        assertNotNull(stats);
+    }
+    @Test
+    void isMutantController() {
+
+        Object rta = controller.isMutant(null);
+        assertNotNull(rta);
     }
 
+    @Test
+    void versionController() {
 
+        Object rta = controller.version();
+        assertNotNull(rta);
+    }
+    @Test
+    void buildStatsController() {
+
+        Object rta = controller.buildStats(null);
+        assertNotNull(rta);
+    }
 
 }
