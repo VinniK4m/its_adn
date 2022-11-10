@@ -75,8 +75,14 @@ public class DnaControllerTest {
     @Test
     void getByIdController() {
 
+        List<Statistics> rta = statisticsController.getById(1L);
+        assertEquals(0, rta.size());
+    }
+    @Test
+    void getByIdNullController() {
+
         Object rta = statisticsController.getById(1L);
-        assertNull(rta);
+        assertNotNull(rta);
     }
 
 }
