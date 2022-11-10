@@ -84,6 +84,13 @@ class DnaControllerTest {
         System.out.println(rta);
         assertNotNull(rta);
     }
+    @Test
+    void isMutantDnaArrOController() {
+        DnaDto dta = new DnaDto(1, "ATGCGA;CAGTGC;TTATGT;AGAAGG;CCCCTA;TCACTG", "HUMAN");
+        Object rta = controller.isMutant(dta);
+        System.out.println(rta);
+        assertNotNull(rta);
+    }
 
     @Test
     void versionEController() {
@@ -112,4 +119,16 @@ class DnaControllerTest {
         assertNotNull(rta);
     }
 
+    @Test
+    void getInitialController() {
+
+        Object rta = controller.initial(null);
+        assertNotNull(rta);
+    }
+    @Test
+    void getBuildController() {
+
+        Object rta = controller.buildStats(null);
+        assertNotNull(rta);
+    }
 }
