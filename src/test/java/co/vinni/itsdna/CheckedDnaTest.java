@@ -108,4 +108,15 @@ class CheckedDnaTest {
         boolean rta = checked.isMutant(dna);
         assertFalse(rta);
     }
+    @Test
+    void verifyIsHumanNull() {
+        boolean rta = checked.isMutant(null);
+        assertFalse(rta);
+    }
+    @Test
+    void verifyIsHumanNNull() {
+        String dna =  "";
+        boolean rta = checked.isMutant(dna);
+        assertFalse(rta);
+    }
 }
