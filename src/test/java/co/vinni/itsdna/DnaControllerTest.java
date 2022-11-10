@@ -3,6 +3,7 @@ package co.vinni.itsdna;
 
 import co.vinni.itsdna.controller.DnaController;
 import co.vinni.itsdna.controller.StatisticsController;
+import co.vinni.itsdna.dto.DnaDto;
 import co.vinni.itsdna.model.Dna;
 import co.vinni.itsdna.model.Statistics;
 import co.vinni.itsdna.view.DnaImplementation;
@@ -15,7 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class DnaControllerTest {
+class DnaControllerTest {
 
 
     @Autowired
@@ -66,6 +67,32 @@ public class DnaControllerTest {
         assertNotNull(rta);
     }
     @Test
+    void isMutantMy() {
+        List<Dna> stats = dnaService.getAllDna();
+        assertEquals(1, stats.size());
+    }
+    @Test
+    void isMutantDnaController() {
+        DnaDto dta = new DnaDto();
+        Object rta = controller.isMutant(dta);
+        assertNotNull(rta);
+    }
+    @Test
+    void isMutantDnaOController() {
+        DnaDto dta = new DnaDto(1, "", "");
+        Object rta = controller.isMutant(dta);
+        System.out.println(rta);
+        assertNotNull(rta);
+    }
+
+    @Test
+    void versionEController() {
+
+        Object rta = controller.version();
+        Object rta1 = controller.version();
+        assertEquals(rta, rta1);
+    }
+    @Test
     void staticGetAllController() {
 
         Object rta = statisticsController.getAll();
@@ -75,8 +102,14 @@ public class DnaControllerTest {
     @Test
     void getByIdController() {
 
+        List<Statistics> rta = statisticsController.getById(1L);
+        assertEquals(0, rta.size());
+    }
+    @Test
+    void getByIdNullController() {
+
         Object rta = statisticsController.getById(1L);
-        assertNull(rta);
+        assertNotNull(rta);
     }
 
 }

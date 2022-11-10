@@ -43,7 +43,7 @@ public class DnaController {
     @PostMapping("/mutant")
     public ResponseEntity<String> isMutant(@RequestBody DnaDto dataDna){
         CheckedDna verify = new CheckedDna();
-        if (dataDna == null || dataDna.getArrayDna().isEmpty()){
+        if (dataDna == null || dataDna.getArrayDna() == null || dataDna.getArrayDna().isEmpty()){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("ERROR STRUCTURE");
         }
         boolean rta = verify.isMutant(dataDna.getArrayDna());
